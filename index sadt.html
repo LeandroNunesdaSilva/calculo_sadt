@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>teste de calculo médico</title>
+    <style>
+body{
+    background-color:rgb(49, 49, 133);      
+}
+
+body h1{
+    font-size: 55px;
+    text-align: center;
+}
+
+body p{
+    font-size: 20px;
+}
+
+#operadora p{
+    font-weight: bold;
+}
+
+#operadora input{
+    margin-right: 3px;
+}
+
+#filme0 {
+    margin-left: 25px;
+}
+
+#procedimento{
+    margin-top: 50px;
+}
+
+#procedimento p{
+    font-weight: bold;
+}
+
+#procedimento input{
+    margin-top: 3px;
+}
+footer {
+    text-align: center ;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+    </style>
+</head>
+<body>
+        <h1>Custo de Procedimento em SADT</h1>
+        <div id="operadora">
+            <p>Os campos abaixo são para os valores que foram negociados com a operadora de saúde.</p>
+            <input type="number" id="tabela"> Tabela
+            <input type="number" id="filme0"> M² filme
+        </div>
+        <div id="procedimento">
+            <p>Nos campos a seguir digite os valores do procedimento realizado.</p> 
+            <input type="number" id="hnr"> Honorários Médicos<br>
+            <input type="number" id="co"> Custo Operacional<br>
+            <input type="number" id="filme1"> Utilizado M² Filme<br>
+            <input type="button" value="Clique aqui para calcular" onclick="somar()">
+        </div>
+        <div id = "res"></div>
+        <script >
+            function somar(){
+    let tbl = window.document.getElementById(`tabela`)
+    let fi0 = window.document.getElementById(`filme0`)
+    let honr = window.document.getElementById(`hnr`)
+    let cuo = window.document.getElementById(`co`)
+    let fi1 = window.document.getElementById(`filme1`)
+    let res = window.document.getElementById(`res`)
+    let tb = Number(tbl.value)
+    let f0 = Number(fi0.value)
+    let hnr = Number(honr.value)
+    let co = Number(cuo.value)
+    let f1 = Number(fi1.value)
+    let stb0 = tb * hnr  
+    let stb1 = tb * co
+    let sflm = f0 * f1
+    let total = stb0 + stb1 + sflm
+    res.innerText = `Honorários R$: ${stb0.toFixed(2)}
+    Custo Operacional R$: ${stb1.toFixed(2)}
+    Filme M² R$: ${sflm.toFixed(2)}
+    O valor total do procedimento é de R$: ${total.toFixed(2)}`
+    res.style.fontWeight = `bold`
+    }
+window.alert(`Seja Bem Vindo! 
+    A finalidade dessa página é lhe auxiliar nos valores em SADT.`)
+        </script>
+<footer>
+    <p>Desenvolvido por: Leandro Nunes    
+</p></footer>
+</body>
+</html>
